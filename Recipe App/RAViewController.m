@@ -10,6 +10,8 @@
 
 @interface RAViewController ()
 
+@property (strong, nonatomic) UITableView * recipeTableView;
+
 @end
 
 @implementation RAViewController
@@ -18,6 +20,11 @@
     [super viewDidLoad];
     
     self.title = @"Taylor's Best Recipes";
+    
+    self.recipeTableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    [self.view addSubview:self.recipeTableView];
+    
+    
     // Do any additional setup after loading the view.
 }
 
