@@ -7,10 +7,12 @@
 //
 
 #import "RAViewController.h"
+#import "RATableViewDatasource.h"
 
 @interface RAViewController ()
 
-@property (strong, nonatomic) UITableView * recipeTableView;
+@property (strong, nonatomic) UITableView *recipeTableView;
+@property (strong, nonatomic) RATableViewDatasource *dataSource;
 
 @end
 
@@ -21,8 +23,14 @@
     
     self.title = @"Taylor's Best Recipes";
     
+    self.dataSource = [RATableViewDatasource new];
+    
     self.recipeTableView = [[UITableView alloc] initWithFrame:self.view.frame];
+    self.recipeTableView.dataSource = self.dataSource;
     [self.view addSubview:self.recipeTableView];
+    
+    //tell tableview waht type of cell we are registering
+    [self.recipeTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
     
     
     // Do any additional setup after loading the view.
