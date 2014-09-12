@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		346CC74719C28FBE0037448E /* RAViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 346CC74619C28FBE0037448E /* RAViewController.m */; };
 		346CC74A19C291A50037448E /* RATableViewDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = 346CC74919C291A50037448E /* RATableViewDatasource.m */; };
+		346CC74D19C297570037448E /* RARecipes.m in Sources */ = {isa = PBXBuildFile; fileRef = 346CC74C19C297570037448E /* RARecipes.m */; };
 		71F67B51192C8D6A00E609F1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F67B50192C8D6A00E609F1 /* Foundation.framework */; };
 		71F67B53192C8D6A00E609F1 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F67B52192C8D6A00E609F1 /* CoreGraphics.framework */; };
 		71F67B55192C8D6A00E609F1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71F67B54192C8D6A00E609F1 /* UIKit.framework */; };
@@ -38,6 +39,8 @@
 		346CC74619C28FBE0037448E /* RAViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RAViewController.m; sourceTree = "<group>"; };
 		346CC74819C291A50037448E /* RATableViewDatasource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RATableViewDatasource.h; sourceTree = "<group>"; };
 		346CC74919C291A50037448E /* RATableViewDatasource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RATableViewDatasource.m; sourceTree = "<group>"; };
+		346CC74B19C297570037448E /* RARecipes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RARecipes.h; sourceTree = "<group>"; };
+		346CC74C19C297570037448E /* RARecipes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RARecipes.m; sourceTree = "<group>"; };
 		71F67B4D192C8D6A00E609F1 /* Recipe App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Recipe App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		71F67B50192C8D6A00E609F1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		71F67B52192C8D6A00E609F1 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +122,8 @@
 				346CC74619C28FBE0037448E /* RAViewController.m */,
 				71F67B5F192C8D6A00E609F1 /* RAAppDelegate.h */,
 				71F67B60192C8D6A00E609F1 /* RAAppDelegate.m */,
+				346CC74B19C297570037448E /* RARecipes.h */,
+				346CC74C19C297570037448E /* RARecipes.m */,
 				71F67B62192C8D6A00E609F1 /* Images.xcassets */,
 				71F67B57192C8D6A00E609F1 /* Supporting Files */,
 			);
@@ -252,6 +257,7 @@
 			files = (
 				71F67B5D192C8D6A00E609F1 /* main.m in Sources */,
 				71F67B61192C8D6A00E609F1 /* RAAppDelegate.m in Sources */,
+				346CC74D19C297570037448E /* RARecipes.m in Sources */,
 				346CC74719C28FBE0037448E /* RAViewController.m in Sources */,
 				346CC74A19C291A50037448E /* RATableViewDatasource.m in Sources */,
 			);
