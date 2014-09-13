@@ -10,4 +10,6 @@
 
 @interface RATableViewDatasource : NSObject <UITableViewDataSource>
 
+- (NSString *)titleAtIndexPath:(NSIndexPath *)path;
+
 @end

@@ -8,6 +8,7 @@
 
 #import "RAViewController.h"
 #import "RATableViewDatasource.h"
+#import "RADetailViewController.h"
 
 @interface RAViewController ()
 
@@ -27,6 +28,8 @@
     
     self.recipeTableView = [[UITableView alloc] initWithFrame:self.view.frame];
     self.recipeTableView.dataSource = self.dataSource;
+    
+    self.recipeTableView.delegate = self;
     [self.view addSubview:self.recipeTableView];
     
     //tell tableview waht type of cell we are registering
@@ -34,6 +37,14 @@
     
     
     // Do any additional setup after loading the view.
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    RADetailViewController *raDetailVC = [RADetailViewController new];
+    raDetailVC.indexPathSelected = indexPath;
+    [self.navigationController pushViewController:raDetailVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

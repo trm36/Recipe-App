@@ -28,4 +28,29 @@
     return cell;
 }
 
+//Set Section Headers
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return @"Recipe.com";
+}
+
+- (NSArray *)titles
+{
+    NSInteger count = [RARecipes count];
+    NSArray *recipeTitles = [[NSArray alloc] init];
+    
+    for (int i = 0; i < count; i++)
+    {
+        recipeTitles = [recipeTitles arrayByAddingObject:[[RARecipes recipeAtIndex:i] objectForKey:@"recipeTitle"]];
+    }
+    return recipeTitles;
+}
+
+- (NSString *)titleAtIndexPath:(NSIndexPath *)path {
+    if (path.row < [self titles].count) {
+        return [self titles][path.row];
+    } else {
+        return nil;
+    }
+}
 @end

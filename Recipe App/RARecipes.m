@@ -109,7 +109,7 @@ static NSString * const DirectionsKey = @"directions";
                                    ]
                  },
              @{
-                 RecipeTitleKey : @"Chicken & chorizo jambalaya",
+                 RecipeTitleKey : @"Chicken & Chorizo Jambalaya",
                  RecipeDescriptionKey : @"A Cajun-inspired rice pot recipe with spicy Spanish sausage, sweet peppers and tomatoes",
                  RecipeIngredientsKey : @[
                          @{IngredientTypeKey: @"olive oil", IngredientVolumeKey: @"1 tbs"},
@@ -122,7 +122,7 @@ static NSString * const DirectionsKey = @"directions";
                                    @"Stir the chicken back in with the rice, add the tomatoes and stock. Cover and simmer for 20-25 mins until the rice is tender."]
                  },
              @{
-                 RecipeTitleKey : @"Ultimate chocolate cake",
+                 RecipeTitleKey : @"Ultimate Chocolate Cake",
                  RecipeDescriptionKey : @"Indulge yourself with Angela Nilsen's heavenly moist and fudgy chocolate cake - perfect for celebrations - birthdays, weddings, christenings - any excuse!",
                  RecipeIngredientsKey : @[
                          @{IngredientTypeKey: @"dark chocolate", IngredientVolumeKey: @"200 g"},
