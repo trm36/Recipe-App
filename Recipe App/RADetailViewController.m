@@ -12,7 +12,6 @@
 
 static CGFloat MARGIN = 15;                             //side margins
 static CGFloat FONT_SIZE = 14;
-static CGFloat NAV_BAR_HEIGHT = 64;
 static CGFloat BUFFER = 5;
 static CGFloat PERCENT_WIDTH_FOR_INGREDIENT_VOLUME = .25;
 static CGFloat PERCENT_WIDTH_FOR_INGREDIENT = .75;      //should add up to 1.00
@@ -26,6 +25,7 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
 @property (strong, nonatomic) RATableViewDatasource *dataSource;
 @property (        nonatomic) CGFloat bottomOfContent;
 @property (strong, nonatomic) UILabel *recipeDescription;
+@property (strong, nonatomic) UIScrollView *scrollView;
 
 @end
 
@@ -37,7 +37,11 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
     
     CGFloat frameWidthWithMargin = self.view.frame.size.width - (2 * MARGIN);
     
-    self.bottomOfContent = NAV_BAR_HEIGHT + BUFFER;
+    self.bottomOfContent = BUFFER;
+    
+    self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    //default of two score views to start with
+    [self.view addSubview:self.scrollView];
     
     //pastel purple
     self.view.backgroundColor = [UIColor colorWithRed:0.569 green:0.443 blue:0.639 alpha:1];
@@ -52,7 +56,7 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
     [self.recipeDescription sizeToFit];
     self.bottomOfContent += self.recipeDescription.frame.size.height;
     self.bottomOfContent += BUFFER;
-    [self.view addSubview:self.recipeDescription];
+    [self.scrollView addSubview:self.recipeDescription];
     
     //Title Label -- INGREDIENTS
     UILabel *ingredientsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN, self.bottomOfContent, frameWidthWithMargin, 20)];
@@ -61,7 +65,7 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
     [ingredientsTitleLabel sizeToFit];
     self.bottomOfContent += ingredientsTitleLabel.frame.size.height;
     self.bottomOfContent += BUFFER;
-    [self.view addSubview:ingredientsTitleLabel];
+    [self.scrollView addSubview:ingredientsTitleLabel];
     
     
     //Ingredients
@@ -73,7 +77,7 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
         quantityLabel.text = ingredients[i][RECIPE_INGREDIENT_VOLUME_KEY];
         [quantityLabel sizeToFit];
         CGFloat quantityHeight = quantityLabel.frame.size.height;
-        [self.view addSubview:quantityLabel];
+        [self.scrollView addSubview:quantityLabel];
         
         UILabel *ingredientLabel = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN + (frameWidthWithMargin * PERCENT_WIDTH_FOR_INGREDIENT_VOLUME) , self.bottomOfContent, frameWidthWithMargin * PERCENT_WIDTH_FOR_INGREDIENT, 20)];
         ingredientLabel.font = [UIFont italicSystemFontOfSize:FONT_SIZE];
@@ -81,7 +85,7 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
         ingredientLabel.text = ingredients[i][INGREDIENT_KEY];
         [ingredientLabel sizeToFit];
         CGFloat ingredientHeight = ingredientLabel.frame.size.height;
-        [self.view addSubview:ingredientLabel];
+        [self.scrollView addSubview:ingredientLabel];
         
         if (ingredientHeight > quantityHeight)
         {
@@ -101,7 +105,7 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
     [directionTitleLabel sizeToFit];
     self.bottomOfContent += directionTitleLabel.frame.size.height;
     self.bottomOfContent += BUFFER;
-    [self.view addSubview:directionTitleLabel];
+    [self.scrollView addSubview:directionTitleLabel];
     
     NSArray *directions = [RARecipes directionsAtIndex:self.indexPathSelected.row];
     for (int i = 0; i < directions.count; i++)
@@ -112,7 +116,7 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
         numberedList.text = [NSString stringWithFormat:@"%d.", i + 1];
         [numberedList sizeToFit];
         CGFloat numberedListHeight = numberedList.frame.size.height;
-        [self.view addSubview:numberedList];
+        [self.scrollView addSubview:numberedList];
         
         UILabel *directionText = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN + (frameWidthWithMargin * PERCENT_WIDTH_FOR_DIRECTION_NUMBER), self.bottomOfContent, frameWidthWithMargin * PERCENT_WIDTH_FOR_DIRECTION, 20)];
         directionText.font = [UIFont systemFontOfSize:FONT_SIZE];
@@ -120,7 +124,7 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
         directionText.text = directions[i];
         [directionText sizeToFit];
         CGFloat directionTextHeight = directionText.frame.size.height;
-        [self.view addSubview:directionText];
+        [self.scrollView addSubview:directionText];
         
         if (directionTextHeight > numberedListHeight)
         {
@@ -132,6 +136,8 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
         }
         self.bottomOfContent += BUFFER;
     }
+    
+    self.scrollView.contentSize = CGSizeMake(self.view.frame.size.width, self.bottomOfContent);
 }
 
 - (void)didReceiveMemoryWarning {
