@@ -16,6 +16,8 @@ static CGFloat NAV_BAR_HEIGHT = 64;
 static CGFloat BUFFER = 5;
 static CGFloat PERCENT_WIDTH_FOR_INGREDIENT_VOLUME = .25;
 static CGFloat PERCENT_WIDTH_FOR_INGREDIENT = .75;      //should add up to 1.00
+static CGFloat PERCENT_WIDTH_FOR_DIRECTION_NUMBER = .10;
+static CGFloat PERCENT_WIDTH_FOR_DIRECTION = .90;      //should add up to 1.00
 static NSString * const INGREDIENT_KEY = @"ingredientType";;
 static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
 
@@ -91,7 +93,47 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
         }
         self.bottomOfContent += BUFFER;
     }
+    
+    //Title Label -- DIRECTION
+    UILabel *directionTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN, self.bottomOfContent, frameWidthWithMargin, 20)];
+    directionTitleLabel.font = [UIFont boldSystemFontOfSize:FONT_SIZE];
+    directionTitleLabel.text = @"Directions";
+    [directionTitleLabel sizeToFit];
+    self.bottomOfContent += directionTitleLabel.frame.size.height;
+    self.bottomOfContent += BUFFER;
+    [self.view addSubview:directionTitleLabel];
+    
+    NSArray *directions = [RARecipes directionsAtIndex:self.indexPathSelected.row];
+    for (int i = 0; i < directions.count; i++)
+    {
+        UILabel *numberedList = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN, self.bottomOfContent, frameWidthWithMargin * PERCENT_WIDTH_FOR_DIRECTION_NUMBER, 20)];
+        numberedList.font = [UIFont systemFontOfSize:FONT_SIZE];
+        //i+1 to start ingredients direction numbering at 1
+        numberedList.text = [NSString stringWithFormat:@"%d.", i + 1];
+        [numberedList sizeToFit];
+        CGFloat numberedListHeight = numberedList.frame.size.height;
+        [self.view addSubview:numberedList];
+        
+        UILabel *directionText = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN + (frameWidthWithMargin * PERCENT_WIDTH_FOR_DIRECTION_NUMBER), self.bottomOfContent, frameWidthWithMargin * PERCENT_WIDTH_FOR_DIRECTION, 20)];
+        directionText.font = [UIFont systemFontOfSize:FONT_SIZE];
+        directionText.numberOfLines = 0;
+        directionText.text = directions[i];
+        [directionText sizeToFit];
+        CGFloat directionTextHeight = directionText.frame.size.height;
+        [self.view addSubview:directionText];
+        
+        if (directionTextHeight > numberedListHeight)
+        {
+            self.bottomOfContent += directionTextHeight;
+        }
+        else
+        {
+            self.bottomOfContent += numberedListHeight;
+        }
+        self.bottomOfContent += BUFFER;
+    }
 }
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
