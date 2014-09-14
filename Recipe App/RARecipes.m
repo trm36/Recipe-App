@@ -49,6 +49,11 @@ static NSString * const DirectionsKey = @"directions";
     return [self recipes][index][DirectionsKey];
 }
 
++ (NSArray *) ingredientArrayAtIndex: (NSInteger)index;
+{
+    return [self recipes][index][RecipeIngredientsKey];
+}
+
 + (NSArray *)recipes {
     
     return @[
