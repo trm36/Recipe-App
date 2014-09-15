@@ -14,6 +14,7 @@ static NSString * const RecipeIngredientsKey = @"recipeIngredients";
 static NSString * const IngredientVolumeKey = @"ingredientVolume";
 static NSString * const IngredientTypeKey = @"ingredientType";
 static NSString * const DirectionsKey = @"directions";
+static NSString * const ImageKey = @"imageName";
 
 @implementation RARecipes
 
@@ -54,6 +55,11 @@ static NSString * const DirectionsKey = @"directions";
     return [self recipes][index][RecipeIngredientsKey];
 }
 
++ (NSString *) imageTitleAtIndex:(NSInteger)index
+{
+    return [self recipes][index][ImageKey];
+}
+
 + (NSArray *)recipes {
     
     return @[
@@ -74,7 +80,8 @@ static NSString * const DirectionsKey = @"directions";
                  DirectionsKey : @[@"In a small mixing bowl, combine all ingredients except meat. Place meat in a large plastic bag set in a shallow dish. Pour marinade over meat. Close bag. Turn several times. Marinate in refrigerator 2 to 24 hours, turning occasionally.",
                                    @"Remove meat from bag. Discard marinade. Insert a meat thermometer into the thickest part of the roast. (Or use an instant-read thermometer to start checking the roast after 1 hour of grilling.",
                                    @"In a covered grill, arrange preheated coals around drip pan (or follow manufacturer's directions for cooking over indirect heat on your gas grill.) Test for medium-low heat above pan. Place meat on grill rack over drip pan. Cover and grill for 1-1/2 to 2-1/4 hours or until meat thermometer registers 155 degree F. Remove roast and cover with foil. Let stand 15 minutes before carving. (The internal temperature of the meat should rise 5 degrees F upon standing, to 160 degree F.)",
-                                   @"Remove strings and slice meat to serve. Use any leftover pork for sandwiches. Makes 12 servings."]
+                                   @"Remove strings and slice meat to serve. Use any leftover pork for sandwiches. Makes 12 servings."],
+                 ImageKey : @"lynns-best-herb-and-garlic-pork.jpg"
                  },
              @{
                  RecipeTitleKey : @"Glorious Glazed Salmon",
@@ -89,7 +96,8 @@ static NSString * const DirectionsKey = @"directions";
                  DirectionsKey : @[@"In a small saucepan, bring vinegar to boiling over medium heat. Boil gently, uncovered, for about 5 minutes or until reduced by about half.",
                                    @"Stir in brown sugar and molasses, tamari or soy sauce, and ginger.",
                                    @"Brush the mixture on the salmon fillets. Place fish on the rack of an uncovered grill directly over medium heat. Grill for 4 to 6 minutes per 1/2-inch thickness or until fish flakes with a fork, turning and brushing with soy mixture halfway through cooking.",
-                                   @"Serve the grilled fish with some rice pilaf and asparagus spears, if you like. Makes 4 servings."]
+                                   @"Serve the grilled fish with some rice pilaf and asparagus spears, if you like. Makes 4 servings."],
+                 ImageKey : @"glorious-glazed-salmon.jpg"
                  },
              @{
                  RecipeTitleKey : @"Paradise Pumpkin Pie",
@@ -125,8 +133,8 @@ static NSString * const DirectionsKey = @"directions";
                                    @"In a medium bowl, combine pumpkin, evaporated milk, the 2 eggs, the 1/4 cup brown sugar, 1/4 cup granulated sugar, the cinnamon, salt, and nutmeg. Carefully pour over cream cheese mixture.",
                                    @"Cover edge of the pie with foil. Bake in a 350 degree F oven for 25 minutes. Remove foil; bake for 25 minutes more.",
                                    @"Meanwhile, combine pecans, butter, flour, and the 2 tablespoons brown sugar. Sprinkle over the pie. Bake for 10 to 15 minutes more or until a knife inserted near the center comes out clean. Cool on wire rack. Makes 1 pie (8 servings).",
-                                   @"PASTRY CRUST\nIn a medium bowl stir together flour and salt. Using a pastry blender, cut in shortening until pieces are pea size. Sprinkle 1 tablespoon cold water over part of flour mixture; toss gently with a fork. Push moistened dough to side of bowl. Repeat with additional cold water, 1 tablespoon at a time (4 to 5 tablespoons total), until all of the flour mixture is moistened. Shape into a ball."
-                                   ]
+                                   @"PASTRY CRUST\nIn a medium bowl stir together flour and salt. Using a pastry blender, cut in shortening until pieces are pea size. Sprinkle 1 tablespoon cold water over part of flour mixture; toss gently with a fork. Push moistened dough to side of bowl. Repeat with additional cold water, 1 tablespoon at a time (4 to 5 tablespoons total), until all of the flour mixture is moistened. Shape into a ball."],
+                 ImageKey : @"paradise-pumpkin-pie.jpg"
                  },
              @{
                  RecipeTitleKey : @"Chicken & Chorizo Jambalaya",
@@ -144,7 +152,8 @@ static NSString * const DirectionsKey = @"directions";
                          @{IngredientTypeKey: @"chicken stock", IngredientVolumeKey: @"350 mL"}
                          ],
                  DirectionsKey : @[@"Heat the oil in a large frying pan with a lid and brown the chicken for 5-8 mins until golden. Remove and set aside. Tip in the onion and cook for 3-4 mins until soft. Then add the pepper, garlic, chorizo and Cajun seasoning, and cook for 5 mins more.",
-                                   @"Stir the chicken back in with the rice, add the tomatoes and stock. Cover and simmer for 20-25 mins until the rice is tender."]
+                                   @"Stir the chicken back in with the rice, add the tomatoes and stock. Cover and simmer for 20-25 mins until the rice is tender."],
+                 ImageKey : @"chicken-chorizo-jambalaya.jpg"
                  },
              @{
                  RecipeTitleKey : @"Ultimate Chocolate Cake",
@@ -167,7 +176,8 @@ static NSString * const DirectionsKey = @"directions";
                                    @"While the chocolate is melting, mix 85g self-raising flour, 85g plain flour, ¼ bicarbonate of soda, 200g light muscovado sugar, 200g golden caster sugar and 25g cocoa powder in a big bowl, mixing with your hands to get rid of any lumps. Beat 3 medium eggs in a bowl and stir in 75ml (5 tbsp) buttermilk.",
                                    @"Now pour the melted chocolate mixture and the egg mixture into the flour mixture, stirring just until everything is well blended and you have a smooth, quite runny consistency. Pour this into the tin and bake for 1 hour 25- 1 hour 30 minutes – if you push a skewer in the centre it should come out clean and the top should feel firm (don’t worry if it cracks a bit). Leave to cool in the tin (don’t worry if it dips slightly), then turn out onto a wire rack to cool completely.",
                                    @"When the cake is cold, cut it horizontally into three. Make the ganache: chop 200g good quality dark chocolate into small pieces and tip into a bowl. Pour a 284ml carton of double cream into a pan, add 2 tbsp golden caster sugar, and heat until it is about to boil. Take off the heat and pour it over the chocolate. Stir until the chocolate has melted and the mixture is smooth.",
-                                   @"Sandwich the layers together with just a little of the ganache. Pour the rest over the cake letting it fall down the sides and smoothing to cover with a palette knife. Decorate with grated chocolate or a pile of chocolate curls. The cake keeps moist and gooey for 3-4 days."]
+                                   @"Sandwich the layers together with just a little of the ganache. Pour the rest over the cake letting it fall down the sides and smoothing to cover with a palette knife. Decorate with grated chocolate or a pile of chocolate curls. The cake keeps moist and gooey for 3-4 days."],
+                 ImageKey : @"Ultimate-chocolate-cake.jpg"
                  }
              ];
     

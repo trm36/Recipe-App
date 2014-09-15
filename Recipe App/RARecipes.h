@@ -19,5 +19,6 @@
 + (NSString *)ingredientVolumeAtIndex:(NSInteger)ingIndex inRecipeAtIndex:(NSInteger)recIndex;
 + (NSArray *) ingredientArrayAtIndex: (NSInteger)index;
 + (NSArray *)directionsAtIndex: (NSInteger)index;
++ (NSString *)imageTitleAtIndex: (NSInteger)index;
 
 @end

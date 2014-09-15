@@ -10,13 +10,13 @@
 #import "RARecipes.h"
 #import "RATableViewDatasource.h"
 
-static CGFloat MARGIN = 15;                             //side margins
-static CGFloat FONT_SIZE = 14;
-static CGFloat BUFFER = 5;
-static CGFloat PERCENT_WIDTH_FOR_INGREDIENT_VOLUME = .25;
-static CGFloat PERCENT_WIDTH_FOR_INGREDIENT = .75;      //should add up to 1.00
-static CGFloat PERCENT_WIDTH_FOR_DIRECTION_NUMBER = .10;
-static CGFloat PERCENT_WIDTH_FOR_DIRECTION = .90;      //should add up to 1.00
+static CGFloat const MARGIN = 15;                             //side margins
+static CGFloat const FONT_SIZE = 14;
+static CGFloat const BUFFER = 5;
+static CGFloat const PERCENT_WIDTH_FOR_INGREDIENT_VOLUME = .25;
+static CGFloat const PERCENT_WIDTH_FOR_INGREDIENT = .75;      //should add up to 1.00
+static CGFloat const PERCENT_WIDTH_FOR_DIRECTION_NUMBER = .10;
+static CGFloat const PERCENT_WIDTH_FOR_DIRECTION = .90;      //should add up to 1.00
 static NSString * const INGREDIENT_KEY = @"ingredientType";;
 static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
 
@@ -24,7 +24,6 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
 
 @property (strong, nonatomic) RATableViewDatasource *dataSource;
 @property (        nonatomic) CGFloat bottomOfContent;
-@property (strong, nonatomic) UILabel *recipeDescription;
 @property (strong, nonatomic) UIScrollView *scrollView;
 
 @end
@@ -37,7 +36,7 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
     
     CGFloat frameWidthWithMargin = self.view.frame.size.width - (2 * MARGIN);
     
-    self.bottomOfContent = BUFFER;
+    self.bottomOfContent = MARGIN;
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
     //default of two score views to start with
@@ -48,15 +47,24 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
     
     self.title = [RARecipes titleAtIndex:self.indexPathSelected.row];
     
-    //RECIPE DESRIPTION
-    self.recipeDescription = [[UILabel alloc]initWithFrame:CGRectMake(MARGIN, self.bottomOfContent, frameWidthWithMargin, 20)];
-    self.recipeDescription.numberOfLines = 0;
-    self.recipeDescription.font = [UIFont systemFontOfSize:FONT_SIZE];
-    self.recipeDescription.text = [RARecipes descriptionAtIndex:self.indexPathSelected.row];
-    [self.recipeDescription sizeToFit];
-    self.bottomOfContent += self.recipeDescription.frame.size.height;
+    //Image
+    UIImageView *recipeImage = [[UIImageView alloc] initWithFrame:CGRectMake(MARGIN, self.bottomOfContent, frameWidthWithMargin, frameWidthWithMargin)]; //squarePhotos
+    recipeImage.image = [UIImage imageNamed:[RARecipes imageTitleAtIndex:self.indexPathSelected.row]];
+    recipeImage.contentMode = UIViewContentModeScaleAspectFit;
+    self.bottomOfContent += recipeImage.frame.size.height;
     self.bottomOfContent += BUFFER;
-    [self.scrollView addSubview:self.recipeDescription];
+    [self.scrollView addSubview:recipeImage];
+    
+    //RECIPE DESRIPTION
+    UILabel *recipeDescription;
+    recipeDescription = [[UILabel alloc]initWithFrame:CGRectMake(MARGIN, self.bottomOfContent, frameWidthWithMargin, 20)];
+    recipeDescription.numberOfLines = 0;
+    recipeDescription.font = [UIFont systemFontOfSize:FONT_SIZE];
+    recipeDescription.text = [RARecipes descriptionAtIndex:self.indexPathSelected.row];
+    [recipeDescription sizeToFit];
+    self.bottomOfContent += recipeDescription.frame.size.height;
+    self.bottomOfContent += BUFFER;
+    [self.scrollView addSubview:recipeDescription];
     
     //Title Label -- INGREDIENTS
     UILabel *ingredientsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN, self.bottomOfContent, frameWidthWithMargin, 20)];

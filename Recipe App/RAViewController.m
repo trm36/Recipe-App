@@ -10,6 +10,8 @@
 #import "RATableViewDatasource.h"
 #import "RADetailViewController.h"
 
+static NSString const * CELL = @"Cell";
+
 @interface RAViewController ()
 
 @property (strong, nonatomic) UITableView *recipeTableView;
@@ -33,10 +35,24 @@
     [self.view addSubview:self.recipeTableView];
     
     //tell tableview waht type of cell we are registering
-    [self.recipeTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"Cell"];
+    [self.recipeTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:(NSString *)CELL];
     
     
     // Do any additional setup after loading the view.
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    UIView *headerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 100)];
+    headerView.backgroundColor = [UIColor whiteColor];
+    
+    UIImageView *headerImage = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 35)];
+    headerImage.image = [UIImage imageNamed:@"recipe-com.jpg"];
+    headerImage.contentMode = UIViewContentModeLeft;
+    [headerView addSubview:headerImage];
+
+    return headerView;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
