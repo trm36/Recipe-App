@@ -95,22 +95,37 @@ static NSString * const DirectionsKey = @"directions";
                  RecipeTitleKey : @"Paradise Pumpkin Pie",
                  RecipeDescriptionKey : @"This extravagant two-layered dessert has a cream cheese base topped with a pumpkin filling and sweet pecans.",
                  RecipeIngredientsKey : @[
+                         @{IngredientTypeKey: @"", IngredientVolumeKey: @"Filling"},
                          @{IngredientTypeKey: @"cream cheese", IngredientVolumeKey: @"8 ounce"},
                          @{IngredientTypeKey: @"granulated sugar", IngredientVolumeKey: @"1/4 cup"},
                          @{IngredientTypeKey: @"vanilla", IngredientVolumeKey: @"1/2 tsp"},
-                         @{IngredientTypeKey: @"egg, beaten", IngredientVolumeKey: @"1"},
+                         @{IngredientTypeKey: @"egg, slightly beaten", IngredientVolumeKey: @"1"},
                          @{IngredientTypeKey: @"pastry crust", IngredientVolumeKey: @"1"},
                          @{IngredientTypeKey: @"canned pumpkin", IngredientVolumeKey: @"1 1/4 can"},
-                         @{IngredientTypeKey: @"brown sugar", IngredientVolumeKey: @"1/4 cup"},
-                         @{IngredientTypeKey: @"cinnamon", IngredientVolumeKey: @"1 tsp"},
-                         @{IngredientTypeKey: @"chopped pecans", IngredientVolumeKey: @"1/2 cup"}
+                         @{IngredientTypeKey: @"evaporated milk", IngredientVolumeKey: @"1 cup"},
+                         @{IngredientTypeKey: @"beaten eggs", IngredientVolumeKey: @"2"},
+                         @{IngredientTypeKey: @"packed brown sugar", IngredientVolumeKey: @"1/4 cup"},
+                         @{IngredientTypeKey: @"granulated sugar", IngredientVolumeKey: @"1/4 cup"},
+                         @{IngredientTypeKey: @"ground cinnamon", IngredientVolumeKey: @"1 tsp"},
+                         @{IngredientTypeKey: @"salt", IngredientVolumeKey: @"1/4 tsp"},
+                         @{IngredientTypeKey: @"ground nutmeg", IngredientVolumeKey: @"1/4 tsp"},
+                         @{IngredientTypeKey: @"chopped pecans", IngredientVolumeKey: @"1/2 cup"},
+                         @{IngredientTypeKey: @"butter, softened", IngredientVolumeKey: @"2 tbsp"},
+                         @{IngredientTypeKey: @"all-purpose flour", IngredientVolumeKey: @"2 tbsp"},
+                         @{IngredientTypeKey: @"brown sugar", IngredientVolumeKey: @"2 tbsp"},
+                         @{IngredientTypeKey: @"", IngredientVolumeKey: @"Pastry Crust"},
+                         @{IngredientTypeKey: @"all-purpose flour", IngredientVolumeKey: @"1 1/4 cups"},
+                         @{IngredientTypeKey: @"salt", IngredientVolumeKey: @"1/4 tsp"},
+                         @{IngredientTypeKey: @"shortening", IngredientVolumeKey: @"1/3 cup"},
+                         @{IngredientTypeKey: @"cold water", IngredientVolumeKey: @"4-5 tbsp"}
                          ],
                  
-                 DirectionsKey : @[@"In a small bowl, beat cream cheese, 1/4 cup granulated sugar, the vanilla, and the 1 egg with an electric mixer on medium speed until smooth. Chill in the refrigerator for 30 minutes.",
+                 DirectionsKey : @[@"FILLING\nIn a small bowl, beat cream cheese, 1/4 cup granulated sugar, the vanilla, and the 1 egg with an electric mixer on medium speed until smooth. Chill in the refrigerator for 30 minutes.",
                                    @"Meanwhile, on a lightly floured surface, use your hands to slightly flatten Pastry for Single-Crust Pie. Roll dough from center to edge into a circle about 12 inches in diameter. To transfer pastry, wrap it around the rolling pin. Unroll pastry into a 9-inch pie plate. Ease pastry into pie plate, being careful not to stretch pastry. Turn cream cheese mixture into pastry-lined pie plate. Trim pastry to 1/2 inch beyond edge of pie plate. Fold under extra pastry. Crimp edge as desired.",
                                    @"In a medium bowl, combine pumpkin, evaporated milk, the 2 eggs, the 1/4 cup brown sugar, 1/4 cup granulated sugar, the cinnamon, salt, and nutmeg. Carefully pour over cream cheese mixture.",
                                    @"Cover edge of the pie with foil. Bake in a 350 degree F oven for 25 minutes. Remove foil; bake for 25 minutes more.",
-                                   @"Meanwhile, combine pecans, butter, flour, and the 2 tablespoons brown sugar. Sprinkle over the pie. Bake for 10 to 15 minutes more or until a knife inserted near the center comes out clean. Cool on wire rack. Makes 1 pie (8 servings)."
+                                   @"Meanwhile, combine pecans, butter, flour, and the 2 tablespoons brown sugar. Sprinkle over the pie. Bake for 10 to 15 minutes more or until a knife inserted near the center comes out clean. Cool on wire rack. Makes 1 pie (8 servings).",
+                                   @"PASTRY CRUST\nIn a medium bowl stir together flour and salt. Using a pastry blender, cut in shortening until pieces are pea size. Sprinkle 1 tablespoon cold water over part of flour mixture; toss gently with a fork. Push moistened dough to side of bowl. Repeat with additional cold water, 1 tablespoon at a time (4 to 5 tablespoons total), until all of the flour mixture is moistened. Shape into a ball."
                                    ]
                  },
              @{
@@ -121,7 +136,12 @@ static NSString * const DirectionsKey = @"directions";
                          @{IngredientTypeKey: @"chicken chopped", IngredientVolumeKey: @"2 breast"},
                          @{IngredientTypeKey: @"onion diced", IngredientVolumeKey: @"1"},
                          @{IngredientTypeKey: @"red pepper sliced", IngredientVolumeKey: @"1"},
-                         @{IngredientTypeKey: @"galic cloves crushed", IngredientVolumeKey: @"2"}
+                         @{IngredientTypeKey: @"garlic cloves crushed", IngredientVolumeKey: @"2"},
+                         @{IngredientTypeKey: @"chorizo,sliced", IngredientVolumeKey: @"75 g"},
+                         @{IngredientTypeKey: @"Cajun seasoning", IngredientVolumeKey: @"1 tbsp"},
+                         @{IngredientTypeKey: @"long grain rice", IngredientVolumeKey: @"250 g"},
+                         @{IngredientTypeKey: @"can plum tomatoes", IngredientVolumeKey: @"400 g"},
+                         @{IngredientTypeKey: @"chicken stock", IngredientVolumeKey: @"350 mL"}
                          ],
                  DirectionsKey : @[@"Heat the oil in a large frying pan with a lid and brown the chicken for 5-8 mins until golden. Remove and set aside. Tip in the onion and cook for 3-4 mins until soft. Then add the pepper, garlic, chorizo and Cajun seasoning, and cook for 5 mins more.",
                                    @"Stir the chicken back in with the rice, add the tomatoes and stock. Cover and simmer for 20-25 mins until the rice is tender."]
@@ -134,9 +154,14 @@ static NSString * const DirectionsKey = @"directions";
                          @{IngredientTypeKey: @"butter", IngredientVolumeKey: @"200 g"},
                          @{IngredientTypeKey: @"instant coffee", IngredientVolumeKey: @"1 tbs"},
                          @{IngredientTypeKey: @"self-raising flour", IngredientVolumeKey: @"85 g"},
+                         @{IngredientTypeKey: @"plain flour", IngredientVolumeKey: @"85 g"},
+                         @{IngredientTypeKey: @"baking soda", IngredientVolumeKey: @"1/4 tsp"},
+                         @{IngredientTypeKey: @"light muscovado sugar", IngredientVolumeKey: @"200 g"},
                          @{IngredientTypeKey: @"golden caster sugar", IngredientVolumeKey: @"200 g"},
                          @{IngredientTypeKey: @"cocoa powder", IngredientVolumeKey: @"200 g"},
-                         @{IngredientTypeKey: @"medium eggs", IngredientVolumeKey: @"3"}
+                         @{IngredientTypeKey: @"medium eggs", IngredientVolumeKey: @"3"},
+                         @{IngredientTypeKey: @"buttermilk", IngredientVolumeKey: @"5 tbsp"},
+                         @{IngredientTypeKey: @"grated chocolate or curls", IngredientVolumeKey: @""}
                          ],
                  DirectionsKey : @[@"Butter a 20cm round cake tin (7.5cm deep) and line the base. Preheat the oven to fan 140C/conventional 160C/ gas 3. Break 200g good quality dark chocolate in pieces into a medium, heavy-based pan. Cut 200g butter into pieces and tip in with the chocolate, then mix 1 tbsp instant coffee granules into 125ml cold water and pour into the pan. Warm through over a low heat just until everything is melted – don’t overheat. Or melt in the microwave on Medium for about 5 minutes, stirring half way through.",
                                    @"While the chocolate is melting, mix 85g self-raising flour, 85g plain flour, ¼ bicarbonate of soda, 200g light muscovado sugar, 200g golden caster sugar and 25g cocoa powder in a big bowl, mixing with your hands to get rid of any lumps. Beat 3 medium eggs in a bowl and stir in 75ml (5 tbsp) buttermilk.",
