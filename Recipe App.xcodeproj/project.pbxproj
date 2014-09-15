@@ -133,7 +133,6 @@
 			children = (
 				346CC74519C28FBE0037448E /* RAViewController.h */,
 				346CC74619C28FBE0037448E /* RAViewController.m */,
-				34EC5C1019C6BF3E00C2B90D /* Images.xcassets */,
 				3458ECB619C4B77C003959CF /* RADetailViewController.h */,
 				3458ECB719C4B77C003959CF /* RADetailViewController.m */,
 				346CC74819C291A50037448E /* RATableViewDatasource.h */,
@@ -142,6 +141,7 @@
 				71F67B60192C8D6A00E609F1 /* RAAppDelegate.m */,
 				346CC74B19C297570037448E /* RARecipes.h */,
 				346CC74C19C297570037448E /* RARecipes.m */,
+				34EC5C1019C6BF3E00C2B90D /* Images.xcassets */,
 				34EC5C1419C6C22300C2B90D /* chicken-chorizo-jambalaya.jpg */,
 				34EC5C1519C6C22300C2B90D /* glorious-glazed-salmon.jpg */,
 				34EC5C1619C6C22300C2B90D /* lynns-best-herb-and-garlic-pork.jpg */,

@@ -63,6 +63,12 @@ static NSString const * CELL = @"Cell";
     [self.navigationController pushViewController:raDetailVC animated:YES];
 }
 
+//Set height of cells
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 100;
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

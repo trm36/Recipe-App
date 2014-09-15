@@ -39,12 +39,12 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
     self.bottomOfContent = MARGIN;
     
     self.scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    //default of two score views to start with
     [self.view addSubview:self.scrollView];
     
     //pastel purple
     self.view.backgroundColor = [UIColor colorWithRed:0.569 green:0.443 blue:0.639 alpha:1];
     
+    //Set NavBar Title
     self.title = [RARecipes titleAtIndex:self.indexPathSelected.row];
     
     //Image
@@ -95,6 +95,7 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
         CGFloat ingredientHeight = ingredientLabel.frame.size.height;
         [self.scrollView addSubview:ingredientLabel];
         
+        //Determine which label is taller
         if (ingredientHeight > quantityHeight)
         {
             self.bottomOfContent += ingredientHeight;
@@ -115,6 +116,7 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
     self.bottomOfContent += BUFFER;
     [self.scrollView addSubview:directionTitleLabel];
     
+    //RECIPE DIRECTIONS
     NSArray *directions = [RARecipes directionsAtIndex:self.indexPathSelected.row];
     for (int i = 0; i < directions.count; i++)
     {
@@ -134,6 +136,7 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
         CGFloat directionTextHeight = directionText.frame.size.height;
         [self.scrollView addSubview:directionText];
         
+        //Determine which label is taller
         if (directionTextHeight > numberedListHeight)
         {
             self.bottomOfContent += directionTextHeight;

@@ -10,6 +10,14 @@
 #import "RARecipes.h"
 #import "RAViewController.h"
 
+static NSString * const CellIdentifier = @"Cell";
+
+@interface RATableViewDatasource()
+
+@property (nonatomic) CGFloat heightOfCellWithText;
+
+@end
+
 @implementation RATableViewDatasource
 
 
@@ -22,9 +30,14 @@
 //Required Method (2 of 2) for UITableView
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath;
 {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell"];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+
+    cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
     
     cell.textLabel.text = [RARecipes titleAtIndex:indexPath.row];
+    cell.detailTextLabel.text = [RARecipes descriptionAtIndex:indexPath.row];
+    cell.detailTextLabel.numberOfLines = 5;
+    
     return cell;
 }
 
