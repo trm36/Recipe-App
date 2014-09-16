@@ -56,15 +56,15 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
     [self.scrollView addSubview:recipeImage];
     
     //RECIPE DESRIPTION
-    UILabel *recipeDescription;
-    recipeDescription = [[UILabel alloc]initWithFrame:CGRectMake(MARGIN, self.bottomOfContent, frameWidthWithMargin, 20)];
-    recipeDescription.numberOfLines = 0;
-    recipeDescription.font = [UIFont systemFontOfSize:FONT_SIZE];
-    recipeDescription.text = [RARecipes descriptionAtIndex:self.indexPathSelected.row];
-    [recipeDescription sizeToFit];
-    self.bottomOfContent += recipeDescription.frame.size.height;
+    UILabel *recipeDescriptionLabel;
+    recipeDescriptionLabel = [[UILabel alloc]initWithFrame:CGRectMake(MARGIN, self.bottomOfContent, frameWidthWithMargin, 20)];
+    recipeDescriptionLabel.numberOfLines = 0;
+    recipeDescriptionLabel.font = [UIFont systemFontOfSize:FONT_SIZE];
+    recipeDescriptionLabel.text = [RARecipes descriptionAtIndex:self.indexPathSelected.row];
+    [recipeDescriptionLabel sizeToFit];
+    self.bottomOfContent += recipeDescriptionLabel.frame.size.height;
     self.bottomOfContent += BUFFER;
-    [self.scrollView addSubview:recipeDescription];
+    [self.scrollView addSubview:recipeDescriptionLabel];
     
     //Title Label -- INGREDIENTS
     UILabel *ingredientsTitleLabel = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN, self.bottomOfContent, frameWidthWithMargin, 20)];
@@ -120,21 +120,21 @@ static NSString * const RECIPE_INGREDIENT_VOLUME_KEY = @"ingredientVolume";
     NSArray *directions = [RARecipes directionsAtIndex:self.indexPathSelected.row];
     for (int i = 0; i < directions.count; i++)
     {
-        UILabel *numberedList = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN, self.bottomOfContent, frameWidthWithMargin * PERCENT_WIDTH_FOR_DIRECTION_NUMBER, 20)];
-        numberedList.font = [UIFont systemFontOfSize:FONT_SIZE];
+        UILabel *numberedListLabel = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN, self.bottomOfContent, frameWidthWithMargin * PERCENT_WIDTH_FOR_DIRECTION_NUMBER, 20)];
+        numberedListLabel.font = [UIFont systemFontOfSize:FONT_SIZE];
         //i+1 to start ingredients direction numbering at 1
-        numberedList.text = [NSString stringWithFormat:@"%d.", i + 1];
-        [numberedList sizeToFit];
-        CGFloat numberedListHeight = numberedList.frame.size.height;
-        [self.scrollView addSubview:numberedList];
+        numberedListLabel.text = [NSString stringWithFormat:@"%d.", i + 1];
+        [numberedListLabel sizeToFit];
+        CGFloat numberedListHeight = numberedListLabel.frame.size.height;
+        [self.scrollView addSubview:numberedListLabel];
         
-        UILabel *directionText = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN + (frameWidthWithMargin * PERCENT_WIDTH_FOR_DIRECTION_NUMBER), self.bottomOfContent, frameWidthWithMargin * PERCENT_WIDTH_FOR_DIRECTION, 20)];
-        directionText.font = [UIFont systemFontOfSize:FONT_SIZE];
-        directionText.numberOfLines = 0;
-        directionText.text = directions[i];
-        [directionText sizeToFit];
-        CGFloat directionTextHeight = directionText.frame.size.height;
-        [self.scrollView addSubview:directionText];
+        UILabel *directionTextLabel = [[UILabel alloc] initWithFrame:CGRectMake(MARGIN + (frameWidthWithMargin * PERCENT_WIDTH_FOR_DIRECTION_NUMBER), self.bottomOfContent, frameWidthWithMargin * PERCENT_WIDTH_FOR_DIRECTION, 20)];
+        directionTextLabel.font = [UIFont systemFontOfSize:FONT_SIZE];
+        directionTextLabel.numberOfLines = 0;
+        directionTextLabel.text = directions[i];
+        [directionTextLabel sizeToFit];
+        CGFloat directionTextHeight = directionTextLabel.frame.size.height;
+        [self.scrollView addSubview:directionTextLabel];
         
         //Determine which label is taller
         if (directionTextHeight > numberedListHeight)
